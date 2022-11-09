@@ -5,6 +5,10 @@ import Footer from "@components/Footer";
 import theme from "./theme";
 import HeroHorizontal from "@components/HeroHorizontal";
 import Fonts from "./Fonts";
+import Features from "@components/Features";
+import Tables from "@components/Tables";
+import AboutUs from "@components/AboutUs";
+
 
 function App() {
   return (
@@ -12,8 +16,10 @@ function App() {
       <Fonts />
       <NavBar />
       <HeroHorizontal />
-
+      <Features />
+      <Tables />
       <HeroTwo />
+      <AboutUs/>
       <Footer />
     </ChakraProvider>
   );
