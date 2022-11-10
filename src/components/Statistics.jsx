@@ -17,9 +17,9 @@ import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { BiTrendingUp } from "react-icons/bi";
 import { BsFillPeopleFill } from "react-icons/bs";
 
-import AnkrImage from "@assets/Ankr.PNG";
-import GalaGamesImage from "@assets/GalaGames.PNG";
-import thesandboxImage from "@assets/thesandbox.PNG";
+import AnkrImage from "@assets/Ankr.png";
+import GalaGamesImage from "@assets/GalaGames.png";
+import thesandboxImage from "@assets/thesandbox.png";
 import { forwardRef } from "react";
 
 function StatsCard(props) {
@@ -27,29 +27,33 @@ function StatsCard(props) {
   return (
     <Stat
       px={{ base: 15, md: 20 }}
-      py={"5"} 
+      py={"5"}
       shadow={"xl"}
       border={"2px solid"}
       borderColor={"green.700"}
       rounded={"lg"}
-      
     >
       <Flex justifyContent={"space-between"}>
         <Box pl={{ base: 2, md: 4 }}>
-          <StatLabel fontSize={"xl"} fontWeight={"large"} isTruncated color={"green.400"}>
+          <StatLabel
+            fontSize={"xl"}
+            fontWeight={"large"}
+            isTruncated
+            color={"green.400"}
+          >
             {title}
           </StatLabel>
-          <Stack spacing='24px' direction='row'>  
-            <Box> 
+          <Stack spacing="24px" direction="row">
+            <Box>
               <StatNumber fontSize={"xl"} fontWeight={"medium"}>
                 {stat}
               </StatNumber>
               <StatHelpText>
-                <StatArrow type='increase' />
+                <StatArrow type="increase" />
                 {percent}
               </StatHelpText>
             </Box>
-            <Image boxSize='50px' src={source} />
+            <Image boxSize="50px" src={source} />
           </Stack>
         </Box>
         <Box ml={15} my={"auto"} color={"green.300"} alignContent={"center"}>

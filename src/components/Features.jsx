@@ -21,10 +21,11 @@ function FeatureWrapper({ children }) {
       mb={4}
       shadow="base"
       borderWidth="1px"
-      alignSelf={"center"}
+      align={"center"}
       justify={"center"}
       borderColor={useColorModeValue("gray.200", "gray.600")}
       borderRadius={"xl"}
+      h={"100%"}
     >
       {children}
     </Box>
@@ -49,7 +50,7 @@ const Features = forwardRef((props, ref) => {
         spacing={10}
         py={12}
       >
-        <FeatureWrapper>
+        <FeatureWrapper h={"100%"}>
           <Box position="relative" w={{ base: "520px", md: 280 }}>
             <Box
               position="absolute"
@@ -80,7 +81,7 @@ const Features = forwardRef((props, ref) => {
                   fontWeight="600"
                   margin={"0px 0px 15px 0px"}
                 >
-                  게임사에서 제공하는 기본 정보와 함께 0xchip에서 분석한 리서치
+                  게임사에서 제공하는 기본 정보와 함께 전문가들이 분석한 리서치
                   자료를 제공합니다.
                 </Text>
               </HStack>
@@ -92,7 +93,7 @@ const Features = forwardRef((props, ref) => {
           </Box>
         </FeatureWrapper>
 
-        <FeatureWrapper>
+        <FeatureWrapper h={"100%"}>
           <Box position="relative" w={{ base: "520px", md: 280 }}>
             <Box
               position="absolute"
@@ -135,7 +136,7 @@ const Features = forwardRef((props, ref) => {
           </Box>
         </FeatureWrapper>
 
-        <FeatureWrapper>
+        <FeatureWrapper h={"100%"}>
           <Box position="relative" w={{ base: "520px", md: 280 }}>
             <Box
               position="absolute"
