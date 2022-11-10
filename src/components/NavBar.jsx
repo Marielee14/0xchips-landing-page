@@ -14,7 +14,7 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -24,8 +24,7 @@ import {
 } from "@chakra-ui/icons";
 import Kaikas from "@assets/kaikas.png";
 
-
-export default function WithSubnavigation() {
+export default function NavBar({ currentVisibleIndex }) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -59,11 +58,11 @@ export default function WithSubnavigation() {
             fontFamily={"heading"}
             fontSize={"lg"}
           >
-            Logo
+            0xchips
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav />
+            <DesktopNav currentVisibleIndex={currentVisibleIndex} />
           </Flex>
         </Flex>
 
@@ -86,37 +85,9 @@ export default function WithSubnavigation() {
           >
             Submit Your Game
           </Button>
-          {/* <Button
-           
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"md"}
-            fontWeight={600}
-            color={"white"}
-            bg={"#BBC2CC"}
-            href={"#"}
-            _hover={{
-              bg: "#afe80c",
-            }}
-        
-          >
-            Sign Up
-          </Button> */}
 
-          <Box
-            as="button"
-            borderRadius="md"
-            bg="white"
-            px={4}
-            h={"29px"}
-          >
-           
-            <Image
-              boxSize="20px"
-              objectFit="cover"
-              src={Kaikas}
-           
-              href={"#"}
-            />
+          <Box as="button" borderRadius="md" bg="white" px={4} h={"29px"}>
+            <Image boxSize="20px" objectFit="cover" src={Kaikas} href={"#"} />
           </Box>
         </Stack>
       </Flex>
@@ -128,14 +99,14 @@ export default function WithSubnavigation() {
   );
 }
 
-const DesktopNav = () => {
-  const linkColor = ("white")
+const DesktopNav = ({ currentVisibleIndex }) => {
+  const linkColor = "white";
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = "rgba(94, 92, 93, 0.5)";
 
   return (
     <Stack direction={"row"} spacing={4}>
-      {NAV_ITEMS.map((navItem) => (
+      {NAV_ITEMS.map((navItem, index) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
@@ -144,7 +115,9 @@ const DesktopNav = () => {
                 href={navItem.href ?? "#"}
                 fontSize={"lg"}
                 fontWeight={500}
-                color={linkColor}
+                color={
+                  currentVisibleIndex === index ? "#afe80c" : { linkColor }
+                }
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -243,12 +216,7 @@ const MobileNavItem = ({ label, children, href }) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-    
-        >
-          {label}
-        </Text>
+        <Text fontWeight={600}>{label}</Text>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -282,39 +250,43 @@ const MobileNavItem = ({ label, children, href }) => {
 };
 
 const NAV_ITEMS = [
+  // {
+  //   label: "Games",
+  //   children: [
+  //     {
+  //       label: "Top games ",
+  //       subLabel: "Game Ranking",
+  //       href: "#",
+  //     },
+  //     // {
+  //     //   label: "Newly Added",
+  //     //   subLabel: "Trending games to play",
+  //     //   href: "#",
+  //     // },
+  //   ],
+  // },
   {
-    label: "Games",
+    label: "Features",
     children: [
       {
-        label: "Top games ",
-        subLabel: "Game Ranking",
-        href: "#",
-      },
-      {
-        label: "Newly Added",
-        subLabel: "Trending games to play",
+        label: "What you can do with the service",
         href: "#",
       },
     ],
   },
+
   {
-    label: "NFTs",
+    label: "Statistics",
     children: [
       {
-        label: "Top NFTs",
-        subLabel: "NFT Rankings",
-        href: "#",
-      },
-      {
-        label: "Newly Added",
-        subLabel: "Trending NFTs to watch",
+        label: "Top Games and NFT Ranking",
         href: "#",
       },
     ],
   },
+
   {
     label: "About Us",
     href: "#",
   },
-
 ];

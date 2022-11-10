@@ -6,11 +6,14 @@ import {
   Stack,
   Text,
   useBreakpointValue,
+  Container,
 } from "@chakra-ui/react";
 import MW2 from "@assets/MW2.jpg";
+import { forwardRef } from "react";
 
-export default function SplitScreen() {
+const HeroHorizontal = forwardRef((props,ref) => {
   return (
+     <Container maxW={"100vw"} ref={ref}>
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
@@ -85,5 +88,8 @@ export default function SplitScreen() {
         <Image alt={"Login Image"} objectFit={"cover"} src={MW2} />
       </Flex>
     </Stack>
+    </Container>
   );
-}
+});
+
+export default HeroHorizontal; 

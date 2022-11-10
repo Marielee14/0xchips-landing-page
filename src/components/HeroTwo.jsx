@@ -43,13 +43,15 @@ export default function CallToActionWithAnnotation() {
             position={"relative"}
           >
             <Button
-              bg={`#afe80c`}
+              href={"//discord.gg/H2FbDGwT"}
+              bg={"#afe80c"}
               rounded={"full"}
               px={6}
               _hover={{
                 bg: "green.500",
               }}
               color={"black"}
+              mt={"20px"}
             >
               Join Discord
             </Button>
@@ -67,10 +69,10 @@ export default function CallToActionWithAnnotation() {
               />
               <Text
                 fontSize={"lg"}
-                fontFamily={"Caveat"}
+                color={"rgb(247, 33, 25)"}
                 position={"absolute"}
                 right={"-125px"}
-                top={"-18px"}
+                top={"-5px"}
                 transform={"rotate(10deg)"}
               >
                 **Events for Newbies
