@@ -79,9 +79,7 @@ export default function LargeWithNewsletter() {
           spacing={8}
         >
           <Stack spacing={6}>
-            <Box>
-              <Logo color={useColorModeValue("gray.700", "white")} />
-            </Box>
+     
             <Text fontSize={"sm"}>
               © 2022 0xChips. All rights reserved
             </Text>
@@ -102,7 +100,7 @@ export default function LargeWithNewsletter() {
             <Link href={"#"}>About us</Link>
             <Link href={"#"}>Blog</Link>
             <Link href={"#"}>Contact us</Link>
-            <Link href={"#"}>Pricing</Link>
+       
             <Link href={"#"}>Testimonials</Link>
           </Stack>
           <Stack align={"flex-start"}>
@@ -111,7 +109,7 @@ export default function LargeWithNewsletter() {
             <Link href={"#"}>Terms of Service</Link>
             <Link href={"#"}>Legal</Link>
             <Link href={"#"}>Privacy Policy</Link>
-            <Link href={"#"}>Satus</Link>
+
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Stay up to date</ListHeader>

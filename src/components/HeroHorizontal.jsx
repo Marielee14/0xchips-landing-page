@@ -18,18 +18,7 @@ const HeroHorizontal = forwardRef((props,ref) => {
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
         <Stack spacing={6} w={"full"} maxW={"lg"}>
           <Heading fontSize={{ base: "5xl", md: "6xl", lg: "7xl" }}>
-            {/* <Heading
-          fontWeight={800}
-          
-          fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
-          lineHeight={"110%"}
-        >
-          All your{" "}
-          <Text as={"span"} color={`#afe80c`}>
-            {""} {"{Gaming NFT trades}"}
-          </Text>{" "}
-          in one place
-        </Heading> */}
+
             <Text
               as={"span"}
               position={"relative"}

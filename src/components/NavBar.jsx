@@ -24,7 +24,7 @@ import {
 } from "@chakra-ui/icons";
 import Kaikas from "@assets/kaikas.png";
 
-export default function NavBar({ currentVisibleIndex }) {
+export default function NavBar({ currentVisibleIndex, onClickNavLink }) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -57,12 +57,18 @@ export default function NavBar({ currentVisibleIndex }) {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             fontSize={"lg"}
+            textShadow={"0 0 0.15em #1da9cc"}
+            
+           
           >
-            0xchips
+            0xchips III
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
-            <DesktopNav currentVisibleIndex={currentVisibleIndex} />
+            <DesktopNav
+              currentVisibleIndex={currentVisibleIndex}
+              onClickNavLink={onClickNavLink}
+            />
           </Flex>
         </Flex>
 
@@ -99,7 +105,7 @@ export default function NavBar({ currentVisibleIndex }) {
   );
 }
 
-const DesktopNav = ({ currentVisibleIndex }) => {
+const DesktopNav = ({ currentVisibleIndex, onClickNavLink }) => {
   const linkColor = "white";
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = "rgba(94, 92, 93, 0.5)";
@@ -112,7 +118,7 @@ const DesktopNav = ({ currentVisibleIndex }) => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? "#"}
+                onClick={() => onClickNavLink(index)}
                 fontSize={"lg"}
                 fontWeight={500}
                 color={
@@ -265,6 +271,9 @@ const NAV_ITEMS = [
   //     // },
   //   ],
   // },
+  {
+    label: "Games",
+  },
   {
     label: "Features",
     children: [

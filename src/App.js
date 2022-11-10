@@ -10,7 +10,7 @@ import Statistics from "@components/Statistics";
 import AboutUs from "@components/AboutUs";
 import { useRef, useEffect, useState } from "react";
 import useObserver from "./hooks/useObserver";
-import "./App.css"
+import "./App.css";
 
 function App() {
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(0);
@@ -20,15 +20,31 @@ function App() {
     };
   };
 
-  const heroRef = useObserver(handleVisible[0]);
+  const heroRef = useObserver(handleVisible(0));
+  const featuresRef = useObserver(handleVisible(1));
+  const statisticsRef = useObserver(handleVisible(2));
+  const aboutUsRef = useObserver(handleVisible(3));
+
+  const handleClickNavLink = (index) => {
+    const refs = [heroRef, featuresRef, statisticsRef, aboutUsRef];
+    refs[index].current.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "center",
+    });
+  };
+
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
-      <NavBar currentVisibleIndex={currentVisibleIndex} />
+      <NavBar
+        currentVisibleIndex={currentVisibleIndex}
+        onClickNavLink={handleClickNavLink}
+      />
       <HeroHorizontal ref={heroRef} />
-      <Features />
-      <Statistics />
-      <AboutUs />
+      <Features ref={featuresRef} />
+      <Statistics ref={statisticsRef} />
+      <AboutUs ref={aboutUsRef} />
       <HeroTwo />
       <Footer />
     </ChakraProvider>

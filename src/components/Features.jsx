@@ -13,14 +13,16 @@ import {
 import { GiPointySword } from "react-icons/gi";
 import { FaDiscord, FaCheckCircle } from "react-icons/fa";
 import { FaHandsHelping } from "react-icons/fa";
+import { forwardRef } from "react";
 
-function PriceWrapper({ children }) {
+function FeatureWrapper({ children }) {
   return (
     <Box
       mb={4}
       shadow="base"
       borderWidth="1px"
       alignSelf={"center"}
+      justify={"center"}
       borderColor={useColorModeValue("gray.200", "gray.600")}
       borderRadius={"xl"}
     >
@@ -29,16 +31,11 @@ function PriceWrapper({ children }) {
   );
 }
 
-export default function Features() {
+const Features = forwardRef((props, ref) => {
   return (
-    <Box py={12}>
-      <VStack spacing={2} textAlign="center">
-        <Heading
-          as="h1"
-          fontSize="5xl"
-          color="#afe80c"
-          fontFamily={"SEBANG_Gothic_Bold"}
-        >
+    <Box py={12} ref={ref}>
+      <VStack spacing={5} textAlign="center">
+        <Heading as="h1" fontSize="7xl" color="" marginTop="350px">
           Play, Trade and Connect
         </Heading>
         <Text fontSize="lg" color={"gray.500"}>
@@ -50,9 +47,9 @@ export default function Features() {
         textAlign="center"
         justify="center"
         spacing={10}
-        py={10}
+        py={12}
       >
-        <PriceWrapper>
+        <FeatureWrapper>
           <Box position="relative" w={{ base: "520px", md: 280 }}>
             <Box
               position="absolute"
@@ -63,7 +60,6 @@ export default function Features() {
               <Text
                 textTransform="uppercase"
                 bg={"#afe80c"}
-                fontFamily={"SEBANG_Gothic_Bold"}
                 px={3}
                 py={1}
                 color={"black"}
@@ -74,7 +70,7 @@ export default function Features() {
                 Information
               </Text>
             </Box>
-            <Box py={4} px={12} fontFamily={"SEBANG_Gothic_Bold"}>
+            <Box py={4} px={12}>
               <Text fontWeight="500" fontSize="2xl" margin="15px 0px 10px 0px">
                 게임 정보
               </Text>
@@ -94,9 +90,9 @@ export default function Features() {
               <Box w="80%" pt={7}></Box>
             </VStack>
           </Box>
-        </PriceWrapper>
+        </FeatureWrapper>
 
-        <PriceWrapper>
+        <FeatureWrapper>
           <Box position="relative" w={{ base: "520px", md: 280 }}>
             <Box
               position="absolute"
@@ -107,7 +103,6 @@ export default function Features() {
               <Text
                 textTransform="uppercase"
                 bg={"#afe80c"}
-                fontFamily={"SEBANG_Gothic_Bold"}
                 px={3}
                 py={1}
                 color={"black"}
@@ -118,7 +113,7 @@ export default function Features() {
                 NFT MARKET
               </Text>
             </Box>
-            <Box py={4} px={12} fontFamily={"SEBANG_Gothic_Bold"}>
+            <Box py={4} px={12}>
               <Text fontWeight="500" fontSize="2xl" margin="15px 0px 10px 0px">
                 NFT 거래
               </Text>
@@ -138,9 +133,9 @@ export default function Features() {
               <Box w="80%" pt={7}></Box>
             </VStack>
           </Box>
-        </PriceWrapper>
+        </FeatureWrapper>
 
-        <PriceWrapper>
+        <FeatureWrapper>
           <Box position="relative" w={{ base: "520px", md: 280 }}>
             <Box
               position="absolute"
@@ -151,7 +146,6 @@ export default function Features() {
               <Text
                 textTransform="uppercase"
                 bg={"#afe80c"}
-                fontFamily={"SEBANG_Gothic_Bold"}
                 px={3}
                 py={1}
                 color={"black"}
@@ -162,7 +156,7 @@ export default function Features() {
                 COMMUNITY
               </Text>
             </Box>
-            <Box py={4} px={12} fontFamily={"SEBANG_Gothic_Bold"}>
+            <Box py={4} px={12}>
               <Text fontWeight="500" fontSize="2xl" margin="15px 0px 10px 0px">
                 커뮤니티
               </Text>
@@ -182,8 +176,10 @@ export default function Features() {
               <Box w="80%" pt={7}></Box>
             </VStack>
           </Box>
-        </PriceWrapper>
+        </FeatureWrapper>
       </Stack>
     </Box>
   );
-}
+});
+
+export default Features;

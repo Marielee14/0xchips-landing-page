@@ -20,6 +20,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import AnkrImage from "@assets/Ankr.PNG";
 import GalaGamesImage from "@assets/GalaGames.PNG";
 import thesandboxImage from "@assets/thesandbox.PNG";
+import { forwardRef } from "react";
 
 function StatsCard(props) {
   const { title, stat, percent, source, icon } = props;
@@ -31,6 +32,7 @@ function StatsCard(props) {
       border={"2px solid"}
       borderColor={"green.700"}
       rounded={"lg"}
+      
     >
       <Flex justifyContent={"space-between"}>
         <Box pl={{ base: 2, md: 4 }}>
@@ -58,7 +60,7 @@ function StatsCard(props) {
   );
 }
 
-export default function BasicStatistics() {
+const Statistics = forwardRef((props, ref) => {
   return (
     <Flex
       direction={"column"}
@@ -67,6 +69,7 @@ export default function BasicStatistics() {
       align={"center"}
       h={"100vh"}
       pos={"relative"}
+      ref={ref}
     >
       <Box
         w={"25%"}
@@ -82,7 +85,7 @@ export default function BasicStatistics() {
         py={10}
         fontWeight={"bold"}
       >
-        All Gaming NFT Ranking 
+        All Gaming NFT Ranking
       </chakra.h1>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 3, md: 8 }}>
         <StatsCard
@@ -109,4 +112,6 @@ export default function BasicStatistics() {
       </SimpleGrid>
     </Flex>
   );
-}         
+});
+
+export default Statistics;

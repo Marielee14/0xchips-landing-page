@@ -1,10 +1,11 @@
 import "./AboutUs.css";
 import Member1 from "./Member1.png";
 import { FaCheckCircle } from "react-icons/fa";
+import { forwardRef } from "react";
 
-function AboutUs() {
+const AboutUs = forwardRef((props, ref) => {
   return (
-    <div id="model3">
+    <div id="model3" ref={ref}>
       <h1 className="model-title">About Us</h1>
       <div className="divider"></div>
       <div className="members">
@@ -47,6 +48,6 @@ function AboutUs() {
       </div>
     </div>
   );
-}
+});
 
 export default AboutUs;

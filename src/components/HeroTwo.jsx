@@ -8,13 +8,14 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
-  Flex
+  Flex,
 } from "@chakra-ui/react";
+import { forwardRef } from "react";
 
-export default function CallToActionWithAnnotation() {
+const HeroTwo = forwardRef((props, ref) => {
   return (
     <>
-      <Flex height={"100vh"} justify={"center"} align={"center"}>
+      <Flex height={"100vh"} justify={"center"} align={"center"} ref={ref}>
         <Stack
           as={Box}
           textAlign={"center"}
@@ -32,8 +33,8 @@ export default function CallToActionWithAnnotation() {
               with the community
             </Text>
           </Heading>
-          <Text maxW={"4xl"}>
-            Monetize your gaming assets by trading your NFTs. blahblah
+          <Text maxW={"4xl"} color={"gray"}>
+            Find out the latest issues in NFT gaming. Monetize your gaming assets by trading your NFTs.
           </Text>
           <Stack
             direction={"column"}
@@ -55,9 +56,7 @@ export default function CallToActionWithAnnotation() {
             >
               Join Discord
             </Button>
-            <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
-              Learn more
-            </Button>
+   
             <Box>
               <Icon
                 as={Arrow}
@@ -83,7 +82,7 @@ export default function CallToActionWithAnnotation() {
       </Flex>
     </>
   );
-}
+});
 
 const Arrow = createIcon({
   displayName: "Arrow",
@@ -97,3 +96,5 @@ const Arrow = createIcon({
     />
   ),
 });
+
+export default HeroTwo;
